@@ -1,0 +1,6 @@
+{
+  "name": "Eliza, Will You Be My Girlfriend?",
+  "description": "A retro pixel-art romantic interactive proposal for Eliza by Moez.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

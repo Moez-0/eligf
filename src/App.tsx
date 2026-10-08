@@ -24,14 +24,17 @@ export default function App() {
 
   const handleAccept = () => {
     setStep('accepted');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleContinueToContract = () => {
     setStep('contract');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const handleRestart = () => {
     setStep('proposal');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -42,7 +45,7 @@ export default function App() {
       {/* Square Pixel Confetti Burst on Acceptance */}
       <CelebrationParticles active={step === 'accepted'} />
 
-      {/* 8-bit Retro Header */}
+      {/* 8-bit Retro Sticky Header (Never overlaps content) */}
       <HeaderNav
         soundEnabled={soundEnabled}
         onToggleSound={handleToggleSound}
@@ -50,17 +53,17 @@ export default function App() {
         showReset={step !== 'proposal'}
       />
 
-      {/* Main Interactive Stage */}
-      <main className="flex-1 flex items-center justify-center pt-16 sm:pt-20 pb-12 relative z-10">
+      {/* Main Interactive Stage: starts from top with proper padding */}
+      <main className="flex-1 w-full max-w-3xl mx-auto px-2 sm:px-4 py-3 sm:py-6 flex flex-col justify-start items-center relative z-10">
         <AnimatePresence mode="wait">
           {step === 'proposal' && (
             <motion.div
               key="proposal-step"
-              initial={{ opacity: 0, y: 12 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -12 }}
-              transition={{ duration: 0.3 }}
-              className="w-full"
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.25 }}
+              className="w-full my-auto"
             >
               <ProposalCard onAccept={handleAccept} />
             </motion.div>
@@ -69,11 +72,11 @@ export default function App() {
           {step === 'accepted' && (
             <motion.div
               key="accepted-step"
-              initial={{ opacity: 0, y: 12 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -12 }}
-              transition={{ duration: 0.3 }}
-              className="w-full"
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.25 }}
+              className="w-full my-auto"
             >
               <AcceptedCard onContinue={handleContinueToContract} />
             </motion.div>
@@ -82,10 +85,10 @@ export default function App() {
           {step === 'contract' && (
             <motion.div
               key="contract-step"
-              initial={{ opacity: 0, y: 12 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -12 }}
-              transition={{ duration: 0.3 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.25 }}
               className="w-full"
             >
               <ContractSection
@@ -98,8 +101,8 @@ export default function App() {
       </main>
 
       {/* 8-bit Footer */}
-      <footer className="relative z-10 py-4 text-center pointer-events-none">
-        <div className="font-pixel-mono text-xs text-[#7d6872] tracking-wider">
+      <footer className="relative z-10 py-3 text-center pointer-events-none pb-[max(0.75rem,env(safe-area-inset-bottom))]">
+        <div className="font-pixel-mono text-[11px] sm:text-xs text-[#7d6872] tracking-wider px-2">
           [ DESIGNED WITH PIXELS BY MOEZ FOR ELIZA ]
         </div>
       </footer>

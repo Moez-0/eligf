@@ -16,31 +16,31 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
   showReset,
 }) => {
   return (
-    <header className="fixed top-0 left-0 right-0 z-40 px-3 sm:px-6 py-3 pointer-events-none">
-      <div className="max-w-4xl mx-auto flex items-center justify-between">
+    <header className="sticky top-0 z-40 w-full bg-[#fceef2]/95 backdrop-blur-xs border-b-2 border-[#1a1215] px-2.5 sm:px-6 py-2 pt-[max(0.5rem,env(safe-area-inset-top))]">
+      <div className="max-w-3xl mx-auto flex items-center justify-between gap-2">
         {/* Brand Kicker / Status Bar */}
-        <div className="pointer-events-auto bg-white border-2 border-[#1a1215] shadow-[3px_3px_0px_#1a1215] px-3 py-1.5 flex items-center gap-2">
-          <PixelHeart size={14} color="#ff2d55" className="pixel-beat" />
-          <span className="font-pixel-heading text-[10px] sm:text-xs text-[#1a1215] tracking-wider">
-            QUEST: MOEZ &hearts; ELIZA
+        <div className="bg-white border-2 border-[#1a1215] shadow-[2px_2px_0px_#1a1215] px-2 sm:px-3 py-1 flex items-center gap-1.5 shrink-0">
+          <PixelHeart size={12} color="#ff2d55" className="pixel-beat" />
+          <span className="font-pixel-heading text-[9px] sm:text-xs text-[#1a1215] tracking-wide">
+            MOEZ &hearts; ELIZA
           </span>
-          <span className="hidden sm:inline font-pixel-mono text-sm text-[#ff2d55]">
+          <span className="hidden sm:inline font-pixel-mono text-xs text-[#ff2d55] font-bold">
             [LVL 99]
           </span>
         </div>
 
         {/* Action Controls */}
-        <div className="pointer-events-auto flex items-center gap-2">
+        <div className="flex items-center gap-1.5 shrink-0">
           {showReset && (
             <button
               onClick={() => {
                 sounds.playClick();
                 onReset();
               }}
-              className="bg-white hover:bg-[#fff0f3] border-2 border-[#1a1215] shadow-[2px_2px_0px_#1a1215] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none px-2.5 py-1 text-[10px] font-pixel-heading text-[#1a1215] cursor-pointer"
+              className="bg-white hover:bg-[#fff0f3] border-2 border-[#1a1215] shadow-[2px_2px_0px_#1a1215] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none px-2 py-1 text-[9px] sm:text-[10px] font-pixel-heading text-[#1a1215] cursor-pointer"
               title="Reset Quest"
             >
-              [ REPLAY ]
+              [REPLAY]
             </button>
           )}
 
@@ -49,11 +49,11 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
               onToggleSound();
               sounds.playClick();
             }}
-            className="bg-white hover:bg-[#fff0f3] border-2 border-[#1a1215] shadow-[2px_2px_0px_#1a1215] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none px-2.5 py-1 text-[10px] font-pixel-heading text-[#1a1215] cursor-pointer"
+            className="bg-white hover:bg-[#fff0f3] border-2 border-[#1a1215] shadow-[2px_2px_0px_#1a1215] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none px-2 py-1 text-[9px] sm:text-[10px] font-pixel-heading text-[#1a1215] cursor-pointer"
             aria-label={soundEnabled ? 'Mute 8-bit sound' : 'Enable 8-bit sound'}
             title="Toggle 8-bit Sound"
           >
-            {soundEnabled ? '[ SFX: ON ]' : '[ SFX: OFF ]'}
+            {soundEnabled ? '[SFX: ON]' : '[SFX: OFF]'}
           </button>
         </div>
       </div>

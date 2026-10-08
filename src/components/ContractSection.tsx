@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { PixelHeart, PixelStar, PixelCheck, PixelScroll, PixelGem, PixelCrown } from './PixelIcons';
+import { PixelScroll } from './PixelIcons';
 import { sounds } from '../utils/audio';
 
 interface ContractSectionProps {
@@ -88,39 +88,39 @@ export const ContractSection: React.FC<ContractSectionProps> = ({
   };
 
   return (
-    <div className="relative w-full max-w-2xl mx-auto px-3 sm:px-4 py-4 z-10">
+    <div className="w-full max-w-2xl mx-auto py-1 sm:py-4">
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.4 }}
-        className="bg-white border-4 border-[#1a1215] shadow-[6px_6px_0px_#1a1215] p-4 sm:p-8"
+        transition={{ duration: 0.3 }}
+        className="bg-white border-3 sm:border-4 border-[#1a1215] shadow-[4px_4px_0px_#1a1215] sm:shadow-[6px_6px_0px_#1a1215] p-3.5 sm:p-7"
       >
         {/* Header */}
-        <div className="border-b-2 border-[#1a1215] pb-4 mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+        <div className="border-b-2 border-[#1a1215] pb-3 mb-4 flex items-center justify-between gap-2">
           <div>
-            <div className="flex items-center gap-2 mb-1">
-              <PixelScroll size={18} color="#ff2d55" />
-              <span className="font-pixel-heading text-[10px] sm:text-xs text-[#ff2d55] tracking-wider">
+            <div className="flex items-center gap-1.5 mb-0.5">
+              <PixelScroll size={16} color="#ff2d55" />
+              <span className="font-pixel-heading text-[9px] sm:text-[10px] text-[#ff2d55] tracking-wider">
                 OFFICIAL CONTRACT
               </span>
             </div>
-            <h2 className="font-pixel-heading text-lg sm:text-xl text-[#1a1215] tracking-wide">
+            <h2 className="font-pixel-heading text-sm sm:text-lg text-[#1a1215] tracking-wide">
               TERMS & CONDITIONS
             </h2>
           </div>
 
-          <div className="self-start sm:self-auto bg-[#e6f4ea] border-2 border-[#10b981] px-2.5 py-1 text-[10px] font-pixel-heading text-[#10b981]">
-            STATUS: ACTIVE
+          <div className="bg-[#e6f4ea] border-2 border-[#10b981] px-2 py-0.5 text-[9px] sm:text-[10px] font-pixel-heading text-[#10b981] shrink-0">
+            ACTIVE
           </div>
         </div>
 
         {/* Narrative Box */}
-        <div className="mb-6 p-3 bg-[#faf5f6] border-2 border-[#1a1215] font-pixel-body text-sm sm:text-base text-[#2a2024] leading-relaxed">
-          This binding agreement is ratified between <strong className="text-[#ff2d55]">Moez</strong> (Party A) and <strong className="text-[#ff2d55]">Eliza</strong> (Party B), establishing the official rules of engagement and romantic partnership.
+        <div className="mb-4 p-2.5 sm:p-3 bg-[#faf5f6] border-2 border-[#1a1215] font-pixel-body text-xs sm:text-sm text-[#2a2024] leading-relaxed">
+          Ratified between <strong className="text-[#ff2d55]">Moez</strong> (Party A) and <strong className="text-[#ff2d55]">Eliza</strong> (Party B) establishing the terms of romance.
         </div>
 
         {/* 5 Terms Cards */}
-        <div className="space-y-3.5 mb-6">
+        <div className="space-y-2.5 sm:space-y-3 mb-4">
           {TERMS.map((term) => {
             const isChecked = signedTerms[term.id];
 
@@ -128,17 +128,17 @@ export const ContractSection: React.FC<ContractSectionProps> = ({
               <div
                 key={term.id}
                 onClick={() => toggleTerm(term.id)}
-                className={`p-3.5 sm:p-4 border-2 transition-all cursor-pointer ${
+                className={`p-2.5 sm:p-3.5 border-2 transition-all cursor-pointer ${
                   isChecked
-                    ? 'bg-white border-[#1a1215] shadow-[3px_3px_0px_#1a1215]'
+                    ? 'bg-white border-[#1a1215] shadow-[2px_2px_0px_#1a1215] sm:shadow-[3px_3px_0px_#1a1215]'
                     : 'bg-[#faf7f8] border-[#9c8e94] opacity-75'
                 }`}
               >
-                <div className="flex items-start gap-3">
+                <div className="flex items-start gap-2.5 sm:gap-3">
                   {/* Pixel Checkbox */}
                   <div className="pt-0.5 shrink-0">
                     <div
-                      className={`w-6 h-6 border-2 border-[#1a1215] flex items-center justify-center font-pixel-heading text-xs ${
+                      className={`w-5 h-5 sm:w-6 sm:h-6 border-2 border-[#1a1215] flex items-center justify-center font-pixel-heading text-[10px] sm:text-xs ${
                         isChecked ? 'bg-[#ff2d55] text-white' : 'bg-white text-transparent'
                       }`}
                     >
@@ -147,20 +147,20 @@ export const ContractSection: React.FC<ContractSectionProps> = ({
                   </div>
 
                   <div className="flex-1 min-w-0">
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-1">
-                      <h3 className="font-pixel-heading text-xs sm:text-sm text-[#1a1215]">
+                    <div className="flex items-baseline justify-between gap-1 mb-1">
+                      <h3 className="font-pixel-heading text-[11px] sm:text-xs text-[#1a1215] truncate">
                         {term.title}
                       </h3>
-                      <span className="font-pixel-mono text-xs text-[#ff2d55] font-bold">
+                      <span className="font-pixel-mono text-[10px] sm:text-xs text-[#ff2d55] font-bold shrink-0">
                         [{term.code}]
                       </span>
                     </div>
 
-                    <p className="font-pixel-body text-sm text-[#403036] leading-relaxed mb-2">
+                    <p className="font-pixel-body text-xs sm:text-sm text-[#403036] leading-relaxed mb-1.5">
                       {term.description}
                     </p>
 
-                    <div className="bg-[#fff0f3] border border-[#ffccd5] px-2 py-1 text-[11px] font-pixel-mono text-[#d61e47]">
+                    <div className="bg-[#fff0f3] border border-[#ffccd5] px-1.5 py-0.5 text-[10px] sm:text-[11px] font-pixel-mono text-[#d61e47]">
                       * {term.penaltyClause}
                     </div>
                   </div>
@@ -171,51 +171,51 @@ export const ContractSection: React.FC<ContractSectionProps> = ({
         </div>
 
         {/* Signatures Block */}
-        <div className="p-4 bg-[#fff5f7] border-2 border-[#1a1215] mb-6">
-          <div className="font-pixel-heading text-[10px] sm:text-xs text-[#1a1215] uppercase tracking-wider mb-3 border-b border-[#ffd6df] pb-2 flex justify-between items-center">
+        <div className="p-2.5 sm:p-3.5 bg-[#fff5f7] border-2 border-[#1a1215] mb-4">
+          <div className="font-pixel-heading text-[9px] sm:text-[10px] text-[#1a1215] uppercase tracking-wider mb-2 border-b border-[#ffd6df] pb-1.5 flex justify-between items-center">
             <span>COUNTERSIGNED IN PIXELS</span>
             <span className="text-[#10b981]">VERIFIED ✓</span>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 font-pixel-body">
-            <div className="border border-[#1a1215] bg-white p-3">
-              <div className="text-xs text-[#705862] font-pixel-mono">PARTY A (PROPOSER)</div>
-              <div className="font-pixel-heading text-sm text-[#1a1215] pt-1">MOEZ</div>
-              <div className="text-xs text-[#10b981] font-pixel-mono pt-1">[STATUS: READY]</div>
+          <div className="grid grid-cols-2 gap-2 sm:gap-4 font-pixel-body">
+            <div className="border border-[#1a1215] bg-white p-2 sm:p-2.5">
+              <div className="text-[10px] text-[#705862] font-pixel-mono">PARTY A</div>
+              <div className="font-pixel-heading text-xs sm:text-sm text-[#1a1215] pt-0.5">MOEZ</div>
+              <div className="text-[9px] sm:text-[10px] text-[#10b981] font-pixel-mono pt-0.5">[READY]</div>
             </div>
 
-            <div className="border border-[#1a1215] bg-white p-3">
-              <div className="text-xs text-[#705862] font-pixel-mono">PARTY B (GIRLFRIEND)</div>
-              <div className="font-pixel-heading text-sm text-[#ff2d55] pt-1">ELIZA ♡</div>
-              <div className="text-xs text-[#ff2d55] font-pixel-mono pt-1">[STATUS: ACCEPTED]</div>
+            <div className="border border-[#1a1215] bg-white p-2 sm:p-2.5">
+              <div className="text-[10px] text-[#705862] font-pixel-mono">PARTY B</div>
+              <div className="font-pixel-heading text-xs sm:text-sm text-[#ff2d55] pt-0.5">ELIZA ♡</div>
+              <div className="text-[9px] sm:text-[10px] text-[#ff2d55] font-pixel-mono pt-0.5">[ACCEPTED]</div>
             </div>
           </div>
         </div>
 
         {/* Required Final Line */}
-        <div className="p-3 bg-[#faf5f6] border-2 border-[#1a1215] text-center mb-6">
-          <p className="font-pixel-body text-sm sm:text-base text-[#1a1215] italic leading-relaxed">
+        <div className="p-2.5 sm:p-3 bg-[#faf5f6] border-2 border-[#1a1215] text-center mb-4">
+          <p className="font-pixel-body text-xs sm:text-sm text-[#1a1215] italic leading-relaxed">
             “By continuing, you acknowledge that this was a very serious and scientifically rigorous proposal.”
           </p>
         </div>
 
         {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-2 sm:gap-2.5">
           <button
             onClick={() => {
               sounds.playClick();
               onOpenCertificate();
             }}
-            className="w-full sm:w-auto pixel-btn-primary bg-[#ff2d55] hover:bg-[#ff1744] text-white font-pixel-heading text-[11px] sm:text-xs px-5 py-3 tracking-wider cursor-pointer"
+            className="pixel-btn-primary bg-[#ff2d55] hover:bg-[#ff1744] text-white font-pixel-heading text-[10px] sm:text-xs px-4 py-2.5 tracking-wider cursor-pointer text-center"
           >
-            VIEW PIXEL CERTIFICATE ▶
+            CERTIFICATE ▶
           </button>
 
           <button
             onClick={handleShare}
-            className="w-full sm:w-auto pixel-btn-secondary bg-white hover:bg-[#fff0f3] text-[#1a1215] font-pixel-heading text-[11px] sm:text-xs px-4 py-3 tracking-wider cursor-pointer"
+            className="pixel-btn-secondary bg-white hover:bg-[#fff0f3] text-[#1a1215] font-pixel-heading text-[10px] sm:text-xs px-3.5 py-2.5 tracking-wider cursor-pointer text-center"
           >
-            {copyToast ? 'LINK COPIED!' : 'SHARE LINK'}
+            {copyToast ? 'COPIED!' : 'SHARE LINK'}
           </button>
 
           <button
@@ -223,9 +223,9 @@ export const ContractSection: React.FC<ContractSectionProps> = ({
               sounds.playClick();
               onRestart();
             }}
-            className="w-full sm:w-auto pixel-btn-secondary bg-[#f0eaec] hover:bg-[#e4dcde] text-[#1a1215] font-pixel-heading text-[11px] sm:text-xs px-4 py-3 tracking-wider cursor-pointer"
+            className="pixel-btn-secondary bg-[#f0eaec] hover:bg-[#e4dcde] text-[#1a1215] font-pixel-heading text-[10px] sm:text-xs px-3.5 py-2.5 tracking-wider cursor-pointer text-center"
           >
-            [ REPLAY ]
+            [REPLAY]
           </button>
         </div>
       </motion.div>

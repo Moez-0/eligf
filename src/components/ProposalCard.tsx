@@ -167,47 +167,47 @@ export const ProposalCard: React.FC<ProposalCardProps> = ({ onAccept }) => {
   };
 
   return (
-    <div className="relative w-full max-w-xl mx-auto px-3 sm:px-4 z-10">
+    <div className="relative w-full max-w-xl mx-auto px-1 sm:px-4 z-10">
       {/* 8-bit RPG Main Dialogue Box (Strictly square, retro pixel border) */}
-      <div className="bg-white border-4 border-[#1a1215] shadow-[6px_6px_0px_#1a1215] p-5 sm:p-8 relative">
+      <div className="bg-white border-3 sm:border-4 border-[#1a1215] shadow-[4px_4px_0px_#1a1215] sm:shadow-[6px_6px_0px_#1a1215] p-3.5 sm:p-7 relative">
         {/* Retro Header Kicker Bar */}
-        <div className="border-b-2 border-[#1a1215] pb-3 mb-6 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <PixelStar size={14} color="#ff2d55" />
-            <span className="font-pixel-heading text-[10px] sm:text-xs text-[#1a1215] uppercase tracking-wider">
+        <div className="border-b-2 border-[#1a1215] pb-2 mb-4 flex items-center justify-between">
+          <div className="flex items-center gap-1.5">
+            <PixelStar size={13} color="#ff2d55" />
+            <span className="font-pixel-heading text-[9px] sm:text-xs text-[#1a1215] uppercase tracking-wider">
               PROPOSER: MOEZ
             </span>
           </div>
-          <div className="font-pixel-mono text-sm text-[#ff2d55] font-bold">
+          <div className="font-pixel-mono text-xs sm:text-sm text-[#ff2d55] font-bold">
             TARGET: ELIZA
           </div>
         </div>
 
         {/* Pixel Icon Crest */}
-        <div className="text-center mb-5">
-          <div className="inline-block p-2 bg-[#ffebee] border-2 border-[#1a1215] shadow-[2px_2px_0px_#1a1215]">
-            <PixelHeart size={32} color="#ff2d55" className="pixel-beat" />
+        <div className="text-center mb-3">
+          <div className="inline-block p-1.5 sm:p-2 bg-[#ffebee] border-2 border-[#1a1215] shadow-[2px_2px_0px_#1a1215]">
+            <PixelHeart size={26} color="#ff2d55" className="pixel-beat" />
           </div>
         </div>
 
         {/* Pixel Main Headline */}
-        <div className="text-center space-y-3 mb-6">
-          <h1 className="font-pixel-heading text-xl sm:text-2xl md:text-3xl text-[#1a1215] leading-relaxed tracking-wide">
+        <div className="text-center space-y-2 mb-4">
+          <h1 className="font-pixel-heading text-base sm:text-2xl text-[#1a1215] leading-relaxed tracking-wide">
             ELIZA, WILL YOU BE <br />
-            <span className="text-[#ff2d55] bg-[#fff0f3] px-2 py-0.5 inline-block mt-2 border-2 border-[#1a1215]">
+            <span className="text-[#ff2d55] bg-[#fff0f3] px-2 py-0.5 inline-block mt-1 border-2 border-[#1a1215]">
               MY GIRLFRIEND?
             </span>
           </h1>
 
           {/* Subtitle Dialogue in clean retro pixel font */}
-          <div className="p-3 bg-[#faf5f6] border-2 border-[#1a1215] mt-4 text-left">
-            <p className="font-pixel-body text-base sm:text-lg text-[#2a2024] leading-relaxed">
+          <div className="p-2 sm:p-2.5 bg-[#faf5f6] border-2 border-[#1a1215] mt-2.5 text-left">
+            <p className="font-pixel-body text-xs sm:text-base text-[#2a2024] leading-relaxed">
               <span className="text-[#ff2d55] font-bold">MOEZ:</span> “I have carefully calculated the risks. I am still choosing you.”
             </p>
           </div>
 
           {/* 8-bit stats ribbon */}
-          <div className="flex items-center justify-center gap-2 sm:gap-4 text-[10px] sm:text-xs font-pixel-heading text-[#6b5860] pt-2 flex-wrap">
+          <div className="flex items-center justify-center gap-2 sm:gap-4 text-[9px] sm:text-xs font-pixel-heading text-[#6b5860] pt-1 flex-wrap">
             <span>RISK: 0.04%</span>
             <span>·</span>
             <span>JOY: 99.8%</span>
@@ -217,7 +217,7 @@ export const ProposalCard: React.FC<ProposalCardProps> = ({ onAccept }) => {
         </div>
 
         {/* Evasive Status / Combat Log Message */}
-        <div className="min-h-[36px] flex items-center justify-center mb-4">
+        <div className="min-h-[30px] flex items-center justify-center mb-3">
           <AnimatePresence mode="wait">
             {lastMessage && (
               <motion.div
@@ -225,7 +225,7 @@ export const ProposalCard: React.FC<ProposalCardProps> = ({ onAccept }) => {
                 initial={{ opacity: 0, y: -4 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0 }}
-                className="bg-[#ffeef2] border-2 border-[#ff2d55] px-3 py-1 text-center font-pixel-body text-sm sm:text-base text-[#ff2d55] font-medium"
+                className="bg-[#ffeef2] border-2 border-[#ff2d55] px-2.5 py-1 text-center font-pixel-body text-xs sm:text-sm text-[#ff2d55] font-medium"
               >
                 <span>&gt; {lastMessage}</span>
               </motion.div>
@@ -236,7 +236,7 @@ export const ProposalCard: React.FC<ProposalCardProps> = ({ onAccept }) => {
         {/* Action Arena */}
         <div
           ref={arenaRef}
-          className="relative w-full h-44 sm:h-40 bg-[#f7edf0] border-2 border-[#1a1215] p-4 overflow-hidden flex items-center justify-center"
+          className="relative w-full h-36 sm:h-40 bg-[#f7edf0] border-2 border-[#1a1215] p-3 overflow-hidden flex items-center justify-center"
         >
           {/* Subtle 8-bit floor pattern */}
           <div
